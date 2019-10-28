@@ -6,14 +6,13 @@ module.exports = function (app, db) {
     app.get('/scrape', function (req, res) {
         axios.get('https://css-tricks.com/').then((webpage) => {
             const $ = cheerio.load(webpage.data);
-            $('.article-card').each((i, el) => {
-
-                const date = $('.article-publication-meta').children('time').attr('datetime');
+            $('.article-article').each((i, el) => {
+                const date = $(el).find('.article-publication-meta').find('time').attr('datetime');
                 const result = {};
 
-                result.title = $('.article-article').children('h2').children('a').text();
-                result.link = $('.article-article').children('h2').children('a').attr('href');
-                result.summary = $('.article-content').children('p').text();
+                result.title = $(el).find('h2').find('a').text().trim();
+                result.link = $(el).find('h2').find('a').attr('href').trim();
+                result.summary = $(el).find('.article-content').find('p').text().trim();
                 result.date = moment(date, 'YYYY-MM-DD').format();
 
                 db.Article.create(result)
@@ -23,9 +22,8 @@ module.exports = function (app, db) {
                     .catch((err) => {
                         console.log(err);
                     });
-
-                res.send('Scrape Complete');
             });
-        })
+            res.send('Scrape Complete');
+        });
     });
 };
