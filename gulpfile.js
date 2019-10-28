@@ -12,17 +12,29 @@ gulp.task('hello', function () {
 });
 
 gulp.task('css', function () {
-    return gulp.src('public/assets/sass/style.scss')
+    return gulp.src('app/public/assets/sass/style.scss')
         .pipe(sass())
         .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(gulp.dest('public/assets/css'))
+        .pipe(gulp.dest('app/public/assets/dist'))
         .pipe(clean())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('public/assets/css'));
+        .pipe(gulp.dest('app/public/assets/dist'));
+});
+
+// command is 'gulp prefix-min --option yourCssFile'
+gulp.task('prefix-min', function () {
+    return gulp.src(`app/public/assets/css/${process.argv[4]}.css`)
+        .pipe(autoprefixer({
+            cascade: false
+        }))
+        .pipe(gulp.dest('app/public/assets/dist'))
+        .pipe(clean())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('app/public/assets/dist'));
 });
 
 gulp.task('watch', function () {
-    gulp.watch('public/assets/sass/*.scss', gulp.series('css'));
+    gulp.watch('app/public/assets/sass/*.scss', gulp.series('css'));
 });
