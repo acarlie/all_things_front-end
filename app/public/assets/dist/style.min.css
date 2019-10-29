@@ -1,1 +1,1 @@
-h1{font-weight:700;text-decoration:underline;display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;text-shadow:1px 1px #000}
+.container{width:100%;padding:1em;margin:0 auto}.container__header{padding:1em}body{font-family:"Open Sans",sans-serif}h1,h2,h3,h4,h5,h6{font-family:Montserrat,sans-serif}.article{padding:1em;margin:.5em 0}@media only screen and (min-width:768px){.container{width:80%}}@media only screen and (min-width:992px){.container{width:60%}}

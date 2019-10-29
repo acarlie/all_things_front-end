@@ -1,1 +1,16 @@
-<h1>Mongo Scraper</h1>
+<div class="container">
+    <header class="container__header">
+        <h1>All Things CSS</h1>
+    </header>
+    <main class="container__content">
+        {{#if success}}
+            {{#each articles}}
+            {{> article}}
+            {{/each}}
+        {{else}}
+            <h5>No articles found</h5>
+            <button>Load new articles!</button>
+        {{/if}}
+    </main>
+</div>
+

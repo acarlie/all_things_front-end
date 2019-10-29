@@ -1,0 +1,13 @@
+.container{
+    width: 100%;
+    @include padding-reg;
+    margin: 0 auto;
+
+    &__header{
+        @include padding-reg;
+    }
+
+    &__content{
+
+    }
+}

@@ -8,13 +8,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mongo_scraper';
 
-app.use(express.static('/app/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan('dev'));
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
+app.use(express.static('./app/public'));
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -25,7 +26,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
     });
 
 require('./app/routing/apiRoutes')(app, db);
-require('./app/routing/htmlRoutes')(app);
+require('./app/routing/htmlRoutes')(app, db);
 
 app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`);

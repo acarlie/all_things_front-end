@@ -1,0 +1,14 @@
+.article{
+    @include padding-reg;
+    margin: $spacing-slim 0;
+
+    &__title{
+
+    }
+    &__summary{
+
+    }
+    &__link{
+
+    }
+}
