@@ -1,5 +1,11 @@
- <article class="article">
-    <h4 class="article__title">{{this.title}} - {{this.date}}</h4>
-    <p class="article__summary">{{this.summary}}</p>
-    <a href="{{this.link}}" class="article__link" target="_blank">Read More</a>
- </article>
+<article class="article">
+   <div class="article__header">
+      <h5 class="article__title">{{this.title}} <span class="dim">- {{this.date}}</span></h5>
+      <div class="article__toggler" data-id="{{this._id}}" data-open="false">
+      </div>
+   </div>
+   <div id="content-{{this._id}}" class="article__content hidden">
+      <p class="article__summary">{{this.summary}}</p>
+      <a href="{{this.link}}" class="article__link" target="_blank">Read More</a>
+   </div>
+</article>

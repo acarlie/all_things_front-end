@@ -4,12 +4,15 @@ $headings-font: 'Montserrat', sans-serif;
 // $color-primary:;
 // $color-secondary:;
 // $color-accent:;
-$color-neutral-light: rgb(245,245,246);
+$color-neutral-light: rgb(225,225,236);
 $color-neutral-dim: rgb(155,151,163);
-$color-neutral-dark: rgb(27,21,39);
+$color-neutral-med: rgba(30,30,40,1.0);
+$color-neutral-dark: rgba(17,17,25,1.0);
 // $color-black:;
 // $color-danger:;
 
 $spacing-slim: .5em;
 $spacing-reg: 1em;
-$spacing-thick: 2em;
+$spacing-thick: 1.5em;
+
+$border-radius: 1em;

@@ -1,13 +1,67 @@
 .article{
-    @include padding-reg;
+    @include border-radius;
+
+    overflow: hidden;
     margin: $spacing-slim 0;
 
-    &__title{
-
+    &__header{
+        display: flex;
+        background-color: $color-neutral-med;
     }
+
+    &__title{
+        @include padding-reg;
+        width: 100%;
+    }
+
+    &__toggler{
+        @include padding-reg;
+        display: inline-block;
+        width: 50px;
+        position: relative;
+        transition: opacity .5s;
+        opacity: .5;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 1;
+        }
+
+        &:before, &:after{
+            top: 20px;
+            position: absolute;
+            content: ' ';
+            height: 15px;
+            width: 3px;
+            background-color: $color-neutral-dim;
+        }
+
+        &:before{
+            transform: rotate(45deg);
+        }
+
+        &:after{
+            transform: rotate(-45deg);
+            left: 7px;
+        }
+    }
+
+    &__content{
+        background-color: $color-neutral-med;
+        height: 100%;
+        overflow: hidden;
+        transition: height 1s linear;
+        @include padding-thick;
+
+        &.hidden{
+            height: 0;
+        }
+    }
+
     &__summary{
 
     }
+
     &__link{
 
     }
