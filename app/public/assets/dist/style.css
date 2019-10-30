@@ -53,15 +53,21 @@ h1, h2, h3, h4, h5, h6 {
       -webkit-transform: rotate(-45deg);
       transform: rotate(-45deg);
       left: 7px; }
+  .article__content-toggle {
+    -webkit-transition: max-height .5s linear;
+    transition: max-height .5s linear;
+    overflow: hidden; }
+  .article .hidden {
+    max-height: 0px;
+    -webkit-transition: max-height .5s ease;
+    transition: max-height .5s ease; }
+  .article .visible {
+    max-height: 100vh;
+    -webkit-transition: max-height 1s ease;
+    transition: max-height 1s ease; }
   .article__content {
-    background-color: #1e1e28;
-    height: 100%;
-    overflow: hidden;
-    -webkit-transition: height 1s linear;
-    transition: height 1s linear;
-    padding: 1.5em; }
-    .article__content.hidden {
-      height: 0; }
+    padding: 1.5em;
+    background-color: #1e1e28; }
 
 /*--------Desktop & Tablet--------*/
 @media only screen and (min-width: 768px) {

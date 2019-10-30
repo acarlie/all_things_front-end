@@ -46,23 +46,32 @@
         }
     }
 
-    &__content{
-        background-color: $color-neutral-med;
-        height: 100%;
+    &__content-toggle{
+        transition: max-height .5s linear;
         overflow: hidden;
-        transition: height 1s linear;
-        @include padding-thick;
+    }
 
-        &.hidden{
-            height: 0;
-        }
+    .hidden{
+        max-height: 0px;
+        transition: max-height .5s ease;
+        // display: none;
+    }
+    
+    .visible{
+        max-height: 100vh;
+        transition: max-height 1s ease;
+        // display: auto;
+    }
+    
+    &__content{
+        @include padding-thick;
+        background-color: $color-neutral-med;
     }
 
     &__summary{
-
     }
 
     &__link{
-
     }
 }
+
