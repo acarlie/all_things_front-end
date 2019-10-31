@@ -7,8 +7,18 @@
     opacity: .75;
     transition: opacity .5s;
 
-    &:hover{
+    &:hover, &--open{
         opacity: 1;
+
+        .text--gradient-hover{
+            @include gradient-text;
+        }
+    }
+
+    &:hover{
+        .text--gradient-hover{
+            @include gradient-underline;
+        }
     }
 
     &__header{
@@ -102,7 +112,11 @@
 
         #{$a-tags-hover}{
             @include gradient-text;
-            text-decoration: underline;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+
+            @include gradient-underline;
         }
     }
 

@@ -1,19 +1,31 @@
 body{
     font-family: $body-font;
-    color: $color-neutral-light;
+    color: $color-neutral-dim;
     @include gradient-dark;
 }
 
 h1, h2, h3, h4, h5, h6{
     font-family: $headings-font;
+    color: $color-neutral-light;
     letter-spacing: .5px;
 }
 
-.dim {
+.text--dim {
     color: $color-neutral-dim;
 }
 
 .text--gradient{
     display: inline-block;
     @include gradient-text;
+}
+
+.text--gradient-hover{
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+
+    &:hover{
+        @include gradient-text;
+        @include gradient-underline;
+    }
 }
