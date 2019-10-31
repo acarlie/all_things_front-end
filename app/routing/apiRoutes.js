@@ -9,11 +9,14 @@ module.exports = function (app, db) {
             const $ = cheerio.load(webpage.data);
             $('.article-article').each((i, el) => {
                 const date = $(el).find('.article-publication-meta').find('time').attr('datetime');
+                const summary = $(el).find('.article-content').find('p').text().trim();
                 const result = {};
 
                 result.title = $(el).find('h2').find('a').text().trim();
                 result.link = $(el).find('h2').find('a').attr('href').trim();
-                result.summary = $(el).find('.article-content').find('p').text().trim();
+                result.summary = summary.substring(0, summary.lastIndexOf('Read'));
+                console.log(result.summary);
+                console.log(typeof result.summary);
                 result.date = moment(date, 'YYYY-MM-DD').format('MMM Do, YYYY');
 
                 db.Article.create(result)

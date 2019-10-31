@@ -12,3 +12,8 @@ h1, h2, h3, h4, h5, h6{
 .dim {
     color: $color-neutral-dim;
 }
+
+.text--gradient{
+    display: inline-block;
+    @include gradient-text;
+}

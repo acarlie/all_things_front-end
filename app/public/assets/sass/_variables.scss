@@ -1,16 +1,15 @@
-$body-font: 'Open Sans', sans-serif;
-$headings-font: 'Montserrat', sans-serif;
+$body-font: 'Lato', sans-serif;
+$headings-font: 'Source Sans Pro', sans-serif;
 
-// $color-primary:;
-// $color-secondary:;
+$color-primary: #03a6a1;
+$color-secondary: #93edab;
 // $color-accent:;
 $color-neutral-light: rgb(225,225,236);
 $color-neutral-dim: rgb(123,123,130);
 $color-neutral-dimmer: rgba(45,45,55,1.0);
 $color-neutral-med: rgba(30,30,40,1.0);
 $color-neutral-dark: rgba(17,17,25,1.0);
-$color-black: rgba(5,5,10,1.0);
-$color-black-trans: rgba(5,5,10,.5);
+$color-black: rgb(5,5,10);
 // $color-danger:;
 
 $spacing-slim: .5em;
@@ -19,3 +18,6 @@ $spacing-thick: 1.5em;
 
 $border-radius: 1em;
 $border-subtle: 1px solid $color-neutral-med;
+
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover';

@@ -10,14 +10,31 @@
     background: linear-gradient(to right, $color-neutral-dimmer, $color-neutral-med); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+// @mixin gradient-accent{
+//     background: #1CD8D2;  /* fallback for old browsers */
+//     background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
+//     background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+// }
+
 @mixin gradient-accent{
-    background: #1CD8D2;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #03a6a1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93edab, #03a6a1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93edab, #03a6a1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@mixin gradient-text {
+    @include gradient-accent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @mixin box-shadow {
-    box-shadow: 0px 10px 20px $color-black-trans;
+    box-shadow: 0px 10px 30px rgba($color-black, .35);
+}
+
+@mixin box-shadow-sm {
+    box-shadow: 0px 5px 5px rgba($color-black, .25);
 }
 
 @mixin padding-thick {

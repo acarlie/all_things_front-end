@@ -1,10 +1,15 @@
 .article{
     @include border-radius;
-
+    @include gradient-med;
+    @include box-shadow-sm;
     overflow: hidden;
     margin: $spacing-slim 0;
-    @include gradient-med;
-    @include box-shadow;
+    opacity: .75;
+    transition: opacity .5s;
+
+    &:hover{
+        opacity: 1;
+    }
 
     &__header{
         display: flex;
@@ -89,12 +94,23 @@
     &__content{
         border-top: $border-subtle;
         @include padding-thick;
+
+        #{$a-tags}{
+            @include gradient-text;
+            text-decoration: none;
+        }
+
+        #{$a-tags-hover}{
+            @include gradient-text;
+            text-decoration: underline;
+        }
     }
 
     &__summary{
     }
 
     &__link{
+
     }
 }
 
