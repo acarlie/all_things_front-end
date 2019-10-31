@@ -1,11 +1,23 @@
 @mixin gradient-dark{
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(30, 35, 39) 0%, rgb(15, 15, 15) 90% );
+    background: $color-neutral-dark;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $color-neutral-med, $color-neutral-dark);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $color-neutral-med, $color-neutral-dark); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-@mixin gradient-main-2{
-    background: #8E2DE2;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+@mixin gradient-med{
+    background: $color-neutral-med;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $color-neutral-dimmer, $color-neutral-med);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $color-neutral-dimmer, $color-neutral-med); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@mixin gradient-accent{
+    background: #1CD8D2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@mixin box-shadow {
+    box-shadow: 0px 10px 20px $color-black-trans;
 }
 
 @mixin padding-thick {

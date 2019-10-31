@@ -1,13 +1,28 @@
+.row{
+
+    &--header{
+        @include gradient-dark;
+        @include box-shadow;
+        @include padding-thick;
+        position: relative;
+
+        &:after{
+            content: ' ';
+            position: absolute;
+            bottom: 0;
+            left:0;
+            height: .25em;
+            width: 100%;
+            @include gradient-accent;
+        }
+    }
+    &--body{
+
+    }
+}
+
 .container{
     width: 100%;
     @include padding-reg;
     margin: 0 auto;
-
-    &__header{
-        @include padding-reg;
-    }
-
-    &__content{
-
-    }
 }

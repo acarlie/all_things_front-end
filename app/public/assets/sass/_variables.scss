@@ -5,10 +5,12 @@ $headings-font: 'Montserrat', sans-serif;
 // $color-secondary:;
 // $color-accent:;
 $color-neutral-light: rgb(225,225,236);
-$color-neutral-dim: rgb(155,151,163);
+$color-neutral-dim: rgb(123,123,130);
+$color-neutral-dimmer: rgba(45,45,55,1.0);
 $color-neutral-med: rgba(30,30,40,1.0);
 $color-neutral-dark: rgba(17,17,25,1.0);
-// $color-black:;
+$color-black: rgba(5,5,10,1.0);
+$color-black-trans: rgba(5,5,10,.5);
 // $color-danger:;
 
 $spacing-slim: .5em;
@@ -16,3 +18,4 @@ $spacing-reg: 1em;
 $spacing-thick: 1.5em;
 
 $border-radius: 1em;
+$border-subtle: 1px solid $color-neutral-med;

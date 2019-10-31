@@ -1,8 +1,10 @@
-<div class="container">
-    <header class="container__header">
+<header class="row row--header">
+    <div class="container">
         <h1>All Things CSS</h1>
-    </header>
-    <main class="container__content">
+    </div>
+</header>
+<main class="row row--body">
+    <div class="container">
         {{#if success}}
             {{#each articles}}
                 {{> article}}
@@ -11,6 +13,6 @@
             <h5>No articles found</h5>
             <button>Load new articles!</button>
         {{/if}}
-    </main>
-</div>
+    </div>
+</main>
 

@@ -3,69 +3,92 @@
 
     overflow: hidden;
     margin: $spacing-slim 0;
+    @include gradient-med;
+    @include box-shadow;
 
     &__header{
         display: flex;
-        background-color: $color-neutral-med;
+        cursor: pointer;
     }
 
     &__title{
-        @include padding-reg;
+        @include padding-thick;
         width: 100%;
     }
 
+    &__toggler-wrap{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
     &__toggler{
-        @include padding-reg;
         display: inline-block;
-        width: 50px;
+        min-width: 60px;
+        max-height: 10px;
         position: relative;
+        bottom: 5px;
+        left: 0;
         transition: opacity .5s;
         opacity: .5;
-        cursor: pointer;
 
         &:hover{
             opacity: 1;
         }
 
         &:before, &:after{
-            top: 20px;
+            transition: transform .5s;
+            top: 0px;
             position: absolute;
             content: ' ';
-            height: 15px;
+            height: 13px;
             width: 3px;
             background-color: $color-neutral-dim;
         }
+    }
 
+    &__toggler--open{
         &:before{
             transform: rotate(45deg);
+            left: 20px;
         }
 
         &:after{
             transform: rotate(-45deg);
-            left: 7px;
+            left: 27px;
+        }
+
+    }
+
+    &__toggler--closed{
+        &:before{
+            transform: rotate(-45deg);
+            left: 20px;
+        }
+
+        &:after{
+            transform: rotate(45deg);
+            left: 27px;
         }
     }
 
-    &__content-toggle{
-        transition: max-height .5s linear;
+    &__content-toggler{
         overflow: hidden;
     }
 
-    .hidden{
+    &__content-toggler--hidden{
         max-height: 0px;
         transition: max-height .5s ease;
-        // display: none;
     }
     
-    .visible{
+    &__content-toggler--visible{
         max-height: 100vh;
         transition: max-height 1s ease;
-        // display: auto;
     }
     
     &__content{
+        border-top: $border-subtle;
         @include padding-thick;
-        background-color: $color-neutral-med;
     }
 
     &__summary{

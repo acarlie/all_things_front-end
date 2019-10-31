@@ -1,10 +1,11 @@
 <article class="article">
-   <div class="article__header">
-      <h5 class="article__title">{{this.title}} <span class="dim">- {{this.date}}</span></h5>
-      <div class="article__toggler" data-id="{{this._id}}" data-open="false">
+   <div class="article__header" data-id="{{this._id}}" data-open="false">
+      <h6 class="article__title">{{this.title}} <span class="dim">- {{this.date}}</span></h6>
+      <div class="article__toggler-wrap">
+         <div id="toggler-{{this._id}}" class="article__toggler article__toggler--closed"></div>
       </div>
    </div>
-   <div id="content-{{this._id}}" class="article__content-toggler hidden">
+   <div id="content-{{this._id}}" class="article__content-toggler article__content-toggler--hidden">
       <div class="article__content">
          <p class="article__summary">{{this.summary}}</p>
          <a href="{{this.link}}" class="article__link" target="_blank">Read More</a>
