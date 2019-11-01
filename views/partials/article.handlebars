@@ -35,7 +35,11 @@
                </div>
 
                <button class="btn btn--primary btn--lightBg btn--block btn--submit" id="submit-{{this._id}}" data-id="{{this._id}}" type="submit">
-                  <span class="btn__span"><a href="#">Save Note</a></span>
+                  <span class="btn__span">
+                     <a href="#">
+                        Save Note
+                     </a>
+                  </span>
                </button>
             </form>
 
@@ -55,7 +59,17 @@
                </a>
             </span>
          </button>
-         <button class="btn btn--accent btn--lightBg btn--block"><span class="btn__span"><a href="#">❤ Article</a></span></button>
+         <button class="btn btn--accent btn--lightBg btn--block btn--save" {{#if this.saved}}data-saved="true"{{else}}data-saved="false"{{/if}} data-id="{{this._id}}">
+            <span class="btn__span">
+               <a href="#">
+                  {{#if this.saved}}
+                        Remove from Saved
+                     {{else}}
+                        ❤ Save Article
+                  {{/if}}
+               </a>
+            </span>
+         </button>
       </div>
 
    </div>

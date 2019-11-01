@@ -29,10 +29,6 @@ module.exports = function (app, db) {
     });
 
     app.post('/articles/:id', function (req, res) {
-        const id = req.params.id;
-        console.log(id);
-        console.log(req.body);
-
         db.Note.create(req.body)
             .then((noteData) => {
                 return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: noteData._id }, { new: true });
@@ -43,6 +39,33 @@ module.exports = function (app, db) {
             .catch((err) => {
                 console.log(err);
             });
+        res.redirect('/');
+    });
+
+    app.put('/save/:id', function (req, res) {
+        const toSave = JSON.parse(req.body.saved);
+        console.log('ToSave:' + toSave);
+
+        db.Article.findOneAndUpdate({ _id: req.params.id }, { $set: { saved: toSave } }, { new: true })
+            .then((data) => {
+                console.log(data);
+                res.json(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    });
+
+    app.delete('/delete', function (req, res) {
+        db.Article.deleteMany({})
+            .catch((err) => {
+                console.log(err);
+            });
+        db.Note.deleteMany({})
+            .catch((err) => {
+                console.log(err);
+            });
+
         res.redirect('/');
     });
 };

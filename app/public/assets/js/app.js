@@ -71,4 +71,38 @@ $(document).ready(function () {
             $(this).find('a').text('X Cancel');
         }
     });
+
+    $(document).on('click', '.btn--save', function (event) {
+        event.preventDefault();
+        const id = $(this).data('id');
+        const isSaved = $(this).data('saved');
+        const obj = isSaved ? { saved: false } : { saved: true };
+        const me = $(this);
+
+        $.ajax({
+            type: 'PUT',
+            url: `/save/${id}`,
+            data: obj
+        }).then((data) => {
+            console.log(`Data saved: ${data}`);
+            if (data.saved) {
+                me.find('a').text('Removed from Saved');
+                me.data('saved', true);
+            } else {
+                me.find('a').text('❤ Save Article');
+                me.data('saved', false);
+            }
+        }).catch(err => {
+            console.log(err);
+        });
+    });
+
+    $(document).on('click', '#delete', function (event) {
+        $.ajax({
+            type: 'DELETE',
+            url: `/delete`
+        }).then(() => {
+        });
+        location.reload();
+    });
 });
