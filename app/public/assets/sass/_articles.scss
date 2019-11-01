@@ -4,26 +4,26 @@
     @include box-shadow-sm;
     overflow: hidden;
     margin: $spacing-slim 0;
-    opacity: .75;
+    opacity: .65;
     transition: opacity .5s;
 
     &:hover, &--open{
         opacity: 1;
 
         .text--gradient-hover{
-            @include gradient-text;
-        }
-    }
-
-    &:hover{
-        .text--gradient-hover{
-            @include gradient-underline;
+            @include gradient-text-primary;
         }
     }
 
     &__header{
         display: flex;
         cursor: pointer;
+
+        &:hover{
+            .text--gradient-hover{
+                @include gradient-underline-primary;
+            }
+        }
     }
 
     &__title{
@@ -97,7 +97,7 @@
     }
     
     &__content-toggler--visible{
-        max-height: 100vh;
+        max-height: 300vh;
         transition: max-height 1s ease;
     }
     
@@ -106,17 +106,17 @@
         @include padding-thick;
 
         #{$a-tags}{
-            @include gradient-text;
+            @include gradient-text-primary;
             text-decoration: none;
         }
 
         #{$a-tags-hover}{
-            @include gradient-text;
+            @include gradient-text-primary;
             text-decoration: none;
             display: inline-block;
             position: relative;
 
-            @include gradient-underline;
+            @include gradient-underline-primary;
         }
     }
 
@@ -126,5 +126,17 @@
     &__link{
 
     }
+
+    &__note{
+
+    }
+
+    &__footer{
+        border-top: $border-subtle;
+        display: flex;
+        flex: 1;
+        @include padding-thick;
+    }
+
 }
 

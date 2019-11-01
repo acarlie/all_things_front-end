@@ -26,4 +26,16 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on('click', '.btn--submit', function (event) {
+        event.preventDefault();
+        const id = $(this).data('id');
+        const title = $(`#note-title-${id}`).val().trim();
+        const body = $(`#note-body-${id}`).val().trim();
+        const obj = {
+            title,
+            body
+        }
+        console.log(obj);
+    });
+
 });

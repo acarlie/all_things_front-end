@@ -13,7 +13,7 @@
             left:0;
             height: .25em;
             width: 100%;
-            @include gradient-accent;
+            @include gradient-primary;
         }
     }
     &--body{

@@ -1,36 +1,64 @@
-@mixin gradient-dark{
-    background: $color-neutral-dark;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, $color-neutral-med, $color-neutral-dark);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, $color-neutral-med, $color-neutral-dark); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+@mixin sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
 }
 
-@mixin gradient-med{
-    background: $color-neutral-med;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, $color-neutral-dimmer, $color-neutral-med);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, $color-neutral-dimmer, $color-neutral-med); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+@mixin gradient ($color1, $color2) {
+    background: $color1;  
+    background: -webkit-linear-gradient(to right, $color2, $color1); 
+    background: linear-gradient(to right, $color2, $color1);
 }
 
-// @mixin gradient-accent{
-//     background: #1CD8D2;  /* fallback for old browsers */
-//     background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
-//     background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-// }
-
-@mixin gradient-accent{
-    background: #03a6a1;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #93edab, #03a6a1);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #93edab, #03a6a1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+@mixin gradient-dark {
+    @include gradient($color-neutral-dark, $color-neutral-med);
 }
 
-@mixin gradient-text {
+@mixin gradient-med {
+    @include gradient($color-neutral-med, $color-neutral-dimmer);
+}
+
+@mixin gradient-primary {
+    @include gradient($color-primary, $color-secondary);
+}
+
+@mixin gradient-accent {
+    // @include gradient(#f857a6, #ff5858);
+    @include gradient(#ff80be, #ff6c7f);
+}
+
+@mixin gradient-text-primary {
+    @include gradient-primary;
     color: $color-primary;
-    @include gradient-accent;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-@mixin gradient-underline{
+@mixin gradient-underline-primary {
+    &:after{
+        @include gradient-primary;
+        content: ' ';
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+    }
+}
+
+@mixin gradient-text-accent {
+    @include gradient-accent;
+    color: $color-primary;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin gradient-underline-accent{
     &:after{
         @include gradient-accent;
         content: ' ';

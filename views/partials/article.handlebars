@@ -1,13 +1,30 @@
-<article id="article-{{this._id}}" class="article">
-   <div class="article__header" data-id="{{this._id}}" data-open="false">
+<article id="article-{{this._id}}" class="article {{#if this.featured}}article--open{{/if}}">
+   <div class="article__header" data-id="{{this._id}}" {{#if this.featured}}data-open="true"{{else}}data-open="false"{{/if}}>
       <h5 class="article__title"><span class="text--gradient-hover">{{this.title}}</span> <span class="text--dim">- {{this.date}}</span></h5>
       <div class="article__toggler-wrap">
-         <div id="toggler-{{this._id}}" class="article__toggler article__toggler--closed"></div>
+         <button id="toggler-{{this._id}}" class="article__toggler {{#if this.featured}}article__toggler--open{{else}}article__toggler--closed{{/if}}"></button>
       </div>
    </div>
-   <div id="content-{{this._id}}" class="article__content-toggler article__content-toggler--hidden">
+   <div id="content-{{this._id}}" class="article__content-toggler {{#if this.featured}}article__content-toggler--visible{{else}}article__content-toggler--hidden{{/if}}">
       <div class="article__content">
          <p class="article__summary">{{this.summary}} <a href="{{this.link}}" class="article__link" target="_blank">Read More</a></p>
+      </div>
+      <div class="article__content">
+         <form action="" class="form">
+            <div class="form__group">
+               <label class="form__label" for="note-title-{{this._id}}">Note Title</label>
+               <input class="form__input form__input--text" id="note-title-{{this._id}}" type="text" name="title" placeholder="Note Title"/>
+            </div>
+            <div class="form__group">
+               <label class="form__label" for="note-body-{{this._id}}">Note Body</label>
+               <textarea class="form__input form__input--textarea" id="note-body-{{this._id}}" name="body" cols="30" rows="10" placeholder="Type your note here..."></textarea>
+            </div>
+            <button class="btn btn--primary btn--lightBg btn--block btn--submit" id="submit-{{this._id}}" data-id="{{this._id}}" type="submit"><span class="btn__span"><a href="#">Save Note</a></span></button>
+         </form>
+      </div>
+      <div class="article__footer">
+         <button class="btn btn--primary btn--lightBg btn--block"><span class="btn__span"><a href="#">+ Add Note</a></span></button>
+         <button class="btn btn--accent btn--lightBg btn--block"><span class="btn__span"><a href="#">❤ Article</a></span></button>
       </div>
    </div>
 </article>

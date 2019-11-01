@@ -5,7 +5,11 @@ module.exports = function (app, db) {
         db.Article.find({})
             .then((articles) => {
                 renderObj.success = true;
-                renderObj.articles = articles;
+                const renderedArticles = articles.map((x, i) => {
+                    x.featured = i === 0;
+                    return x;
+                });
+                renderObj.articles = renderedArticles;
                 res.render('index', renderObj);
             })
             .catch(() => {
