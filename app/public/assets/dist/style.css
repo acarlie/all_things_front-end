@@ -161,12 +161,14 @@ h1 {
     overflow: hidden; }
   .article__content-toggler--hidden {
     max-height: 0px;
-    -webkit-transition: max-height .5s ease;
-    transition: max-height .5s ease; }
+    -webkit-transition: max-height .5s ease, visibility 2s;
+    transition: max-height .5s ease, visibility 2s;
+    visibility: hidden; }
   .article__content-toggler--visible {
     max-height: 300vh;
-    -webkit-transition: max-height 1s ease;
-    transition: max-height 1s ease; }
+    -webkit-transition: max-height 1s ease, visibility 2s;
+    transition: max-height 1s ease, visibility 2s;
+    visibility: visible; }
   .article__content {
     border-top: 1px solid #1e1e28;
     padding: 1.5em; }
@@ -200,6 +202,15 @@ h1 {
         width: 100%;
         height: 2px;
         position: absolute; }
+  .article__note {
+    border-top: 1px solid #1e1e28;
+    padding: 1.5em;
+    -webkit-transition: all .5s;
+    transition: all .5s; }
+    .article__note--hidden {
+      opacity: 0;
+      height: 0;
+      overflow: hidden; }
   .article__footer {
     border-top: 1px solid #1e1e28;
     display: -webkit-box;

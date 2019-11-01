@@ -37,13 +37,11 @@ module.exports = function (app, db) {
             .then((noteData) => {
                 return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: noteData._id }, { new: true });
             })
-            .then(function (dbArticle) {
-                // If we were able to successfully update an Article, send it back to the client
-                res.json(dbArticle);
+            .then((articleData) => {
+                console.log(articleData);
             })
-            .catch(function (err) {
-                // If an error occurred, send it to the client
-                res.json(err);
+            .catch((err) => {
+                console.log(err);
             });
         res.redirect('/');
     });

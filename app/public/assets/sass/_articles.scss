@@ -93,13 +93,13 @@
 
     &__content-toggler--hidden{
         max-height: 0px;
-        transition: max-height .5s ease;
+        transition: max-height .5s ease, visibility 2s;
         visibility: hidden;
     }
     
     &__content-toggler--visible{
         max-height: 300vh;
-        transition: max-height 1s ease;
+        transition: max-height 1s ease, visibility 2s;
         visibility: visible;
     }
     
@@ -130,7 +130,15 @@
     }
 
     &__note{
+        border-top: $border-subtle;
+        @include padding-thick;
+        transition: all .5s;
 
+        &--hidden{
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+        }
     }
 
     &__footer{

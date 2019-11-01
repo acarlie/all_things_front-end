@@ -5,9 +5,12 @@ module.exports = function (app, db) {
         db.Article.find({})
             .populate('note')
             .then((articles) => {
-                console.log(articles[1].note);
                 renderObj.success = true;
-                const renderedArticles = articles.map((x, i) => {
+                const hasNote = articles.map((x) => {
+                    x.hasNote = x.note !== undefined;
+                    return x;
+                });
+                const renderedArticles = hasNote.map((x, i) => {
                     x.featured = i === 0;
                     return x;
                 });

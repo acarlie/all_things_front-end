@@ -48,4 +48,27 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('click', '.btn--note', function (event) {
+        event.preventDefault();
+        const id = $(this).data('id');
+        const isOpen = $(this).data('open');
+        const hasNote = $(this).data('hasNote');
+        if (isOpen) {
+            $(`#note-wrap-${id}`)
+                .addClass('article__content-toggler--hidden')
+                .removeClass('article__content-toggler--visible');
+            $(this).data('open', false);
+            if (hasNote) {
+                $(this).find('a').text('Edit Note');
+            } else {
+                $(this).find('a').text('+ Add Note');
+            }
+        } else {
+            $(`#note-wrap-${id}`)
+                .addClass('article__content-toggler--visible')
+                .removeClass('article__content-toggler--hidden');
+            $(this).data('open', true);
+            $(this).find('a').text('X Cancel');
+        }
+    });
 });
