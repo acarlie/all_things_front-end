@@ -3,7 +3,6 @@ const cheerio = require('cheerio');
 const moment = require('moment');
 
 module.exports = function (app, db) {
-
     app.get('/scrape', function (req, res) {
         axios.get('https://css-tricks.com/').then((webpage) => {
             const $ = cheerio.load(webpage.data);
@@ -15,8 +14,6 @@ module.exports = function (app, db) {
                 result.title = $(el).find('h2').find('a').text().trim();
                 result.link = $(el).find('h2').find('a').attr('href').trim();
                 result.summary = summary.substring(0, summary.lastIndexOf('Read'));
-                console.log(result.summary);
-                console.log(typeof result.summary);
                 result.date = moment(date, 'YYYY-MM-DD').format('MMM Do, YYYY');
 
                 db.Article.create(result)
@@ -29,5 +26,25 @@ module.exports = function (app, db) {
             });
             res.redirect('/');
         });
+    });
+
+    app.post('/articles/:id', function (req, res) {
+        const id = req.params.id;
+        console.log(id);
+        console.log(req.body);
+
+        db.Note.create(req.body)
+            .then((noteData) => {
+                return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: noteData._id }, { new: true });
+            })
+            .then(function (dbArticle) {
+                // If we were able to successfully update an Article, send it back to the client
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                // If an error occurred, send it to the client
+                res.json(err);
+            });
+        res.redirect('/');
     });
 };

@@ -94,11 +94,13 @@
     &__content-toggler--hidden{
         max-height: 0px;
         transition: max-height .5s ease;
+        visibility: hidden;
     }
     
     &__content-toggler--visible{
         max-height: 300vh;
         transition: max-height 1s ease;
+        visibility: visible;
     }
     
     &__content{

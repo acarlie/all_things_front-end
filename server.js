@@ -17,6 +17,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('./app/public'));
 
+mongoose.set('useFindAndModify', false);
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Database connection successful');

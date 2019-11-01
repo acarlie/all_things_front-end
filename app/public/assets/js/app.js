@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    // $('.btn a').attr('tabIndex', '-1');
     $(document).on('click', '.article__header', function (event) {
         const isOpen = $(this).data('open');
         const id = $(this).attr('data-id');
@@ -34,8 +34,18 @@ $(document).ready(function () {
         const obj = {
             title,
             body
-        }
-        console.log(obj);
+        };
+        $.ajax({
+            type: 'POST',
+            url: `/articles/${id}`,
+            data: obj
+        }).then(() => {
+            $(`#note-title-${id}`).val('');
+            $(`#note-body-${id}`).val('');
+            location.reload();
+        }).catch(err => {
+            console.log(err);
+        });
     });
 
 });
