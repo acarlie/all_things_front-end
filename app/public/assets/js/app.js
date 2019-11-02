@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // $('.btn a').attr('tabIndex', '-1');
+    $('.link--btn').attr('tabIndex', '-1');
     $(document).on('click', '.article__header', function (event) {
         const isOpen = $(this).data('open');
         const id = $(this).attr('data-id');
@@ -59,16 +59,16 @@ $(document).ready(function () {
                 .removeClass('article__content-toggler--visible');
             $(this).data('open', false);
             if (hasNote) {
-                $(this).find('a').text('Edit Note');
+                $(this).find('span').find('span').text('Edit Note');
             } else {
-                $(this).find('a').text('+ Add Note');
+                $(this).find('span').find('span').text('+ Add Note');
             }
         } else {
             $(`#note-wrap-${id}`)
                 .addClass('article__content-toggler--visible')
                 .removeClass('article__content-toggler--hidden');
             $(this).data('open', true);
-            $(this).find('a').text('X Cancel');
+            $(this).find('span').find('span').text('X Cancel');
         }
     });
 
@@ -86,10 +86,10 @@ $(document).ready(function () {
         }).then((data) => {
             console.log(`Data saved: ${data}`);
             if (data.saved) {
-                me.find('a').text('Removed from Saved');
+                me.find('span').find('span').text('Removed from Saved');
                 me.data('saved', true);
             } else {
-                me.find('a').text('❤ Save Article');
+                me.find('span').find('span').text('❤ Save Article');
                 me.data('saved', false);
             }
         }).catch(err => {

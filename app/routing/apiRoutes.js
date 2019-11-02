@@ -44,7 +44,6 @@ module.exports = function (app, db) {
 
     app.put('/save/:id', function (req, res) {
         const toSave = JSON.parse(req.body.saved);
-        console.log('ToSave:' + toSave);
 
         db.Article.findOneAndUpdate({ _id: req.params.id }, { $set: { saved: toSave } }, { new: true })
             .then((data) => {

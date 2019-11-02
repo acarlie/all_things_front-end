@@ -3,7 +3,9 @@
    <div class="article__header" data-id="{{this._id}}" {{#if this.featured}}data-open="true"{{else}}data-open="false"{{/if}}>
       <h5 class="article__title"><span class="text--gradient-hover">{{this.title}}</span> <span class="text--dim">- {{this.date}}</span></h5>
       <div class="article__toggler-wrap">
-         <button id="toggler-{{this._id}}" class="article__toggler {{#if this.featured}}article__toggler--open{{else}}article__toggler--closed{{/if}}"> </button>
+         <button id="toggler-{{this._id}}" class="article__toggler {{#if this.featured}}article__toggler--open{{else}}article__toggler--closed{{/if}}">
+            <span></span>
+         </button>
       </div>
    </div>
 
@@ -19,7 +21,32 @@
             <p>{{this.note.body}}</p>
          </div>
       {{/if}}
+      
 
+      <div class="article__footer">
+         <button class="btn btn--primary btn--lightBg btn--block btn--note" data-id="{{this._id}}" data-open="false" data-hasNote="{{this.hasNote}}">
+            <span class="btn__span">
+               <span class="text--gradient">
+                  {{#if this.hasNote}}
+                     Edit Note
+                  {{else}}
+                     + Add Note
+                  {{/if}}
+               </span>
+            </span>
+         </button>
+         <button class="btn btn--accent btn--lightBg btn--block btn--save" {{#if this.saved}}data-saved="true"{{else}}data-saved="false"{{/if}} data-id="{{this._id}}" data-isSaved-page={{isSaved}}>
+            <span class="btn__span">
+               <span class="text--gradient-accent">
+                  {{#if this.saved}}
+                        Remove from Saved
+                     {{else}}
+                        ❤ Save Article
+                  {{/if}}
+               </span>
+            </span>
+         </button>
+      </div>
       <div id="note-wrap-{{this._id}}" class="article__content-toggler article__content-toggler--hidden" data-open="false">
          <div class="article__content">
 
@@ -36,40 +63,14 @@
 
                <button class="btn btn--primary btn--lightBg btn--block btn--submit" id="submit-{{this._id}}" data-id="{{this._id}}" type="submit">
                   <span class="btn__span">
-                     <a href="#">
+                     <span class="text--gradient">
                         Save Note
-                     </a>
+                     </span>
                   </span>
                </button>
             </form>
 
          </div>
-      </div>
-      
-
-      <div class="article__footer">
-         <button class="btn btn--primary btn--lightBg btn--block btn--note" data-id="{{this._id}}" data-open="false" data-hasNote="{{this.hasNote}}">
-            <span class="btn__span">
-               <a href="#">
-                  {{#if this.hasNote}}
-                     Edit Note
-                  {{else}}
-                     + Add Note
-                  {{/if}}
-               </a>
-            </span>
-         </button>
-         <button class="btn btn--accent btn--lightBg btn--block btn--save" {{#if this.saved}}data-saved="true"{{else}}data-saved="false"{{/if}} data-id="{{this._id}}">
-            <span class="btn__span">
-               <a href="#">
-                  {{#if this.saved}}
-                        Remove from Saved
-                     {{else}}
-                        ❤ Save Article
-                  {{/if}}
-               </a>
-            </span>
-         </button>
       </div>
 
    </div>

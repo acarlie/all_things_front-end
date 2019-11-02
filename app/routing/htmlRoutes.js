@@ -1,6 +1,7 @@
 module.exports = function (app, db) {
     app.get('/', (req, res) => {
         const renderObj = {};
+        renderObj.isSavedPage = false;
 
         db.Article.find({})
             .populate('note')
@@ -25,6 +26,7 @@ module.exports = function (app, db) {
 
     app.get('/saved', (req, res) => {
         const renderObj = {};
+        renderObj.isSavedPage = true;
 
         db.Article.find({ saved: true })
             .populate('note')

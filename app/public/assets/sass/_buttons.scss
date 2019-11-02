@@ -16,16 +16,6 @@
         margin-right: $spacing-slim;
     }
 
-    #{$a-tags}{
-        text-decoration: none;
-    }
-
-    #{$a-tags-hover}{
-        text-decoration: none;
-        display: inline-block;
-        position: relative;
-    }
-
     .btn__span{
         border-radius: .25em;
         display: flex;

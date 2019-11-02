@@ -49,6 +49,16 @@ h1 {
   background-clip: text;
   -webkit-text-fill-color: transparent; }
 
+.text--gradient-accent {
+  display: inline-block;
+  background: #ff80be;
+  background: -webkit-gradient(linear, left top, right top, from(#ff6c7f), to(#ff80be));
+  background: linear-gradient(to right, #ff6c7f, #ff80be);
+  color: #03a6a1;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
 .text--gradient-hover {
   text-decoration: none;
   display: inline-block;
@@ -262,12 +272,6 @@ h1 {
     padding: 3px; }
   .btn:not(:last-child) {
     margin-right: 0.5em; }
-  .btn a, .btn a:active, .btn a:hover, .btn a:visited {
-    text-decoration: none; }
-  .btn a:active, .btn a:hover {
-    text-decoration: none;
-    display: inline-block;
-    position: relative; }
   .btn .btn__span {
     border-radius: .25em;
     display: -webkit-box;
