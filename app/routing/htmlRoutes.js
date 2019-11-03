@@ -5,6 +5,7 @@ module.exports = function (app, db) {
 
         db.Article.find({})
             .populate('note')
+            .sort({ timestamp: -1 })
             .then((articles) => {
                 if (articles.length > 0) {
                     renderObj.success = true;

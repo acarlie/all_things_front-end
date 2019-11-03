@@ -7,18 +7,45 @@ module.exports = function (app, db) {
         axios.get('https://css-tricks.com/').then((webpage) => {
             const $ = cheerio.load(webpage.data);
             $('.article-article').each((i, el) => {
+                const result = {};
                 const date = $(el).find('.article-publication-meta').find('time').attr('datetime');
                 const summary = $(el).find('.article-content').find('p').text().trim();
-                const result = {};
 
+                result.timestamp = moment(date, 'YYYY-MM-DD').unix();
+                result.site = 'css-tricks';
+                result.siteUrl = 'https://css-tricks.com/';
                 result.title = $(el).find('h2').find('a').text().trim();
                 result.link = $(el).find('h2').find('a').attr('href').trim();
                 result.summary = summary.substring(0, summary.lastIndexOf('Read'));
                 result.date = moment(date, 'YYYY-MM-DD').format('MMM Do, YYYY');
 
                 db.Article.create(result)
-                    .then((articleData) => {
-                        console.log(articleData);
+                    .then(() => {
+                        // console.log(articleData);
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            });
+            return axios.get('https://tympanus.net/codrops/category/tutorials/');
+        }).then((webpage) => {
+            const $ = cheerio.load(webpage.data);
+            $('.ct-box.post').each((i, el) => {
+                const result = {};
+                const date = $(el).find('time').text();
+                const summary = $(el).find('.ct-feat-excerpt').text().trim();
+
+                result.timestamp = moment(date, 'Mon DD, YYYY').unix();
+                result.site = 'codrops';
+                result.siteUrl = 'https://tympanus.net/codrops/';
+                result.title = $(el).find('h2').find('a').text().trim();
+                result.link = $(el).find('h2').find('a').attr('href').trim();
+                result.summary = `${summary}...`;
+                result.date = moment(date, 'Mon DD, YYYY').format('MMM Do, YYYY');
+
+                db.Article.create(result)
+                    .then(() => {
+                        // console.log(articleData);
                     })
                     .catch((err) => {
                         console.log(err);
