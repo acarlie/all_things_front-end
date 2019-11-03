@@ -13,8 +13,39 @@
                 {{> article}}
             {{/each}}
         {{else}}
-            <h5 class="text--center text--dim">No articles found :-(</h5>
-            <button class="btn btn--primary"><span class="btn__span"><a href="/scrape">Load New Articles!</a></span></button>
+            <div class="card">
+                    {{#if isSavedPage}}
+                        <div class="card__header">
+                            <h5 class="card__title text--center text--dim">There are no saved articles :-(</h5>
+                        </div>
+                        <div class="card__content">
+                            <a class="link--btn" href="/">
+                                <button class="btn btn--primary btn--lightBg btn--block">
+                                    <span class="btn__span">
+                                        <span class="text--gradient">
+                                            Home
+                                        </span>
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
+                    {{else}}
+                        <div class="card__header">                            
+                            <h5 class="card__title text--center text--dim">No articles found :-(</h5>
+                        </div>
+                        <div class="card__content">
+                            <a class="link--btn" href="/scrape">
+                                <button class="btn btn--primary btn--lightBg btn--block">
+                                    <span class="btn__span">
+                                        <span class="text--gradient">
+                                            Load New Articles!
+                                        </span>
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
+                    {{/if}}
+            </div>
         {{/if}}
     </div>
 </main>

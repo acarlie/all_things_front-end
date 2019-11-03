@@ -20,10 +20,10 @@
             outline: none;
             font-family: $body-font;
             border: 1px solid $color-neutral-dim;
+
             &:focus{
                 border: 2px solid $color-primary; 
             }
         }
     }
-
 }
