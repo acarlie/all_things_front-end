@@ -8,19 +8,35 @@
    <div id="content-{{this._id}}" class="card__content-toggler {{#if this.featured}}card__content-toggler--visible{{else}}card__content-toggler--hidden{{/if}}">
       
       <div class="card__content">
+         <p><em class="text--dim">Source: <a href="{{this.siteUrl}}" class="link link--primary" target="_blank">{{this.site}}</a></em></p>
          <p class="card__summary">{{this.summary}} <a href="{{this.link}}" class="link link--primary" target="_blank">Read More</a></p>
       </div>
 
       {{#if this.hasNote}}
          <div class="card__note" id="note-{{this._id}}">
-            <p>{{this.note.title}}</p>
-            <p>{{this.note.body}}</p>
+            <p><h6>Article Note</h6></p>
+            <p>
+               <strong>Title:</strong> <span id="note-title-text-{{this._id}}">{{this.note.title}}</span>
+            </p>
+            <p>
+               <strong>Note:</strong> <span id="note-body-text-{{this._id}}">{{this.note.body}}</span>
+            </p>
+         </div>
+      {{else}}
+         <div class="card__note card__note--hidden" id="note-{{this._id}}">
+            <h6>Article Note</h6>
+            <p>
+               <strong>Title:</strong> <span id="note-title-text-{{this._id}}"></span>
+            </p>
+            <p>
+               <strong>Note:</strong> <span id="note-body-text-{{this._id}}"></span>
+            </p>
          </div>
       {{/if}}
       
 
       <div class="card__footer">
-         <button class="btn btn--primary btn--lightBg btn--block btn--note" data-id="{{this._id}}" data-open="false" data-hasNote="{{this.hasNote}}">
+         <button id="add-note-btn-{{this._id}}" class="btn btn--primary btn--lightBg btn--block btn--note" data-id="{{this._id}}" data-open="false" data-has-note="{{this.hasNote}}">
             <span class="btn__span">
                <span class="text--gradient">
                   {{#if this.hasNote}}
@@ -46,25 +62,7 @@
       <div id="note-wrap-{{this._id}}" class="card__content-toggler card__content-toggler--hidden" data-open="false">
          <div class="card__content">
 
-            <form action="" class="form">
-               <div class="form__group">
-                  <label class="form__label" for="note-title-{{this._id}}">Note Title</label>
-                  <input class="form__input form__input--text" id="note-title-{{this._id}}" type="text" name="title" value="{{#if this.hasNote}}{{this.note.title}}{{/if}}" placeholder="Note Title" />
-               </div>
-
-               <div class="form__group">
-                  <label class="form__label" for="note-body-{{this._id}}">Note Body</label>
-                  <textarea class="form__input form__input--textarea" id="note-body-{{this._id}}" name="body" cols="30" rows="10" placeholder="Type your note here...">{{#if this.hasNote}}{{this.note.body}}{{/if}}</textarea>
-               </div>
-
-               <button class="btn btn--primary btn--lightBg btn--block btn--submit" id="submit-{{this._id}}" data-id="{{this._id}}" type="submit">
-                  <span class="btn__span">
-                     <span class="text--gradient">
-                        Save Note
-                     </span>
-                  </span>
-               </button>
-            </form>
+            {{> form}}
 
          </div>
       </div>

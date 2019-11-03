@@ -54,6 +54,18 @@ h5{
     font-size: 1.075em;
 }
 
+h6{
+    font-size: 1em;
+}
+
+strong{
+    font-weight: bold;
+}
+
+em{
+    font-style: italic;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {

@@ -32,7 +32,7 @@ const ArticleSchema = new Schema({
         type: String,
         required: true
     },
-    timestamp:{
+    timestamp: {
         type: Number,
         required: true
     },

@@ -1,0 +1,22 @@
+<form action="" class="form">
+    <div class="form__group">
+        <label class="form__label" for="note-title-{{this._id}}">Note Title</label>
+        <input class="form__input form__input--text" id="note-title-{{this._id}}" type="text" name="title"
+            value="{{#if this.hasNote}}{{this.note.title}}{{/if}}" placeholder="Note Title" />
+    </div>
+
+    <div class="form__group">
+        <label class="form__label" for="note-body-{{this._id}}">Note Body</label>
+        <textarea class="form__input form__input--textarea" id="note-body-{{this._id}}" name="body" cols="30" rows="10"
+            placeholder="Type your note here...">{{#if this.hasNote}}{{this.note.body}}{{/if}}</textarea>
+    </div>
+
+    <button class="btn btn--primary btn--lightBg btn--block btn--submit" id="submit-{{this._id}}" data-id="{{this._id}}"
+        type="submit">
+        <span class="btn__span">
+            <span class="text--gradient">
+                Save Note
+            </span>
+        </span>
+    </button>
+</form>
