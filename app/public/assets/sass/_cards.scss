@@ -1,4 +1,4 @@
-.article{
+.card{
     @include border-radius;
     @include gradient-med;
     @include box-shadow-sm;
@@ -33,18 +33,18 @@
 
     &__content-toggler{
         overflow: hidden;
-    }
 
-    &__content-toggler--hidden{
-        max-height: 0px;
-        transition: max-height .5s ease, visibility 1s;
-        visibility: hidden;
-    }
-    
-    &__content-toggler--visible{
-        max-height: 300vh;
-        transition: max-height 1s ease, visibility 1s;
-        visibility: visible;
+        &--hidden{
+            max-height: 0px;
+            transition: max-height .5s ease, visibility .6s;
+            visibility: hidden;
+        }
+
+        &--visible{
+            max-height: 300vh;
+            transition: max-height 1s ease, visibility .9s;
+            visibility: visible;
+        }
     }
     
     &__content{
@@ -53,8 +53,7 @@
     }
 
     &__note{
-        border-top: $border-subtle;
-        @include padding-thick;
+        @extend .card__content;
         transition: all .5s;
 
         &--hidden{
@@ -65,10 +64,9 @@
     }
 
     &__footer{
-        border-top: $border-subtle;
+        @extend .card__content;
         display: flex;
         flex: 1;
-        @include padding-thick;
     }
 
 }

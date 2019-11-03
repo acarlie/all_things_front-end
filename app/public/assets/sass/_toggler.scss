@@ -23,44 +23,43 @@
             }
          
         }
-    }
 
-    &__button:focus{
-        .toggler__span{
-            &:before, &:after{
-                background-color: white;
+        &:focus{
+            .toggler__span{
+                &:before, &:after{
+                    background-color: white;
+                }
             }
         }
-    }
-    
-    &__button--open{
-        .toggler__span{
-            &:before{
-                transform: rotate(45deg);
-                left: 20px;
-            }
-        
-            &:after{
-                transform: rotate(-45deg);
-                left: 27px;
-            }
-        }
-    }
-    
-    &__button--closed{
-        .toggler__span{
-            &:before{
-                transform: rotate(-45deg);
-                left: 20px;
-            }
-        
-            &:after{
-                transform: rotate(45deg);
-                left: 27px;
-            }
-        }
-    }
 
+        &--open{
+            .toggler__span{
+                &:before{
+                    transform: rotate(45deg);
+                    left: 20px;
+                }
+            
+                &:after{
+                    transform: rotate(-45deg);
+                    left: 27px;
+                }
+            }
+        }
+
+        &--closed{
+            .toggler__span{
+                &:before{
+                    transform: rotate(-45deg);
+                    left: 20px;
+                }
+            
+                &:after{
+                    transform: rotate(45deg);
+                    left: 27px;
+                }
+            }
+        }
+    }
 }
 
 

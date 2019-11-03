@@ -1,18 +1,18 @@
 $(document).ready(function () {
     $('.link--btn').attr('tabIndex', '-1');
 
-    $(document).on('click', '.article__header', function (event) {
+    $(document).on('click', '.card__header', function (event) {
         const isOpen = $(this).data('open');
         const id = $(this).attr('data-id');
         if (isOpen) {
             $(`#article-${id}`)
-                .removeClass('article--open');
+                .removeClass('card--open');
             $(`#toggler-${id}`)
                 .addClass('toggler__button--closed')
                 .removeClass('toggler__button--open');
             $(`#content-${id}`)
-                .addClass('article__content-toggler--hidden')
-                .removeClass('article__content-toggler--visible');
+                .addClass('card__content-toggler--hidden')
+                .removeClass('card__content-toggler--visible');
             $(this).data('open', false);
         } else {
             $(`#article-${id}`)
@@ -21,8 +21,8 @@ $(document).ready(function () {
                 .addClass('toggler__button--open')
                 .removeClass('toggler__button--closed');
             $(`#content-${id}`)
-                .addClass('article__content-toggler--visible')
-                .removeClass('article__content-toggler--hidden');
+                .addClass('card__content-toggler--visible')
+                .removeClass('card__content-toggler--hidden');
             $(this).data('open', true);
         }
     });
@@ -56,8 +56,8 @@ $(document).ready(function () {
         const hasNote = $(this).data('hasNote');
         if (isOpen) {
             $(`#note-wrap-${id}`)
-                .addClass('article__content-toggler--hidden')
-                .removeClass('article__content-toggler--visible');
+                .addClass('card__content-toggler--hidden')
+                .removeClass('card__content-toggler--visible');
             $(this).data('open', false);
             if (hasNote) {
                 $(this).find('span').find('span').text('Edit Note');
@@ -66,8 +66,8 @@ $(document).ready(function () {
             }
         } else {
             $(`#note-wrap-${id}`)
-                .addClass('article__content-toggler--visible')
-                .removeClass('article__content-toggler--hidden');
+                .addClass('card__content-toggler--visible')
+                .removeClass('card__content-toggler--hidden');
             $(this).data('open', true);
             $(this).find('span').find('span').text('X Cancel');
         }
