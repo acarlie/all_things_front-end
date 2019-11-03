@@ -1,0 +1,21 @@
+
+.link{
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    
+    &:focus{
+        outline: 0;
+    }
+
+    &--primary{
+        @extend .link;
+        @include gradient-text-primary;
+
+        &:active, &:hover, &:focus{
+            @include gradient-text-primary;
+            @include gradient-underline-primary;
+        }
+    }
+
+}

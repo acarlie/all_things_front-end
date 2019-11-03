@@ -2,22 +2,7 @@
 <header class="row row--header">
     <div class="container">
         <h1>All Things <span class="text--gradient">&#123;</span> CSS <span class="text--gradient">&#125;</span></h1>
-        {{#if isSavedPage}}
-            <a class="link--btn" href="/">
-                {{> pill-button color="primary" bg="darkBg" textClass="gradient" text="Home"}}
-            </a>
-        {{else}}
-            <a class="link--btn" href="/saved">
-                {{> pill-button color="accent" bg="darkBg" textClass="gradient-accent" text="❤ View Saved"}}
-            </a>
-        {{/if}}
-
-        <a class="link--btn" href="/scrape">
-            {{> pill-button color="primary" bg="darkBg" textClass="gradient" text="Load New Articles!"}}
-        </a>
-
-        {{> pill-button id="delete" color="accent" bg="darkBg" textClass="gradient-accent" text="Clear All"}}
-
+        {{> nav}}
     </div>
 </header>
 

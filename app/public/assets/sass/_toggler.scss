@@ -1,0 +1,66 @@
+.toggler{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__button{
+        .toggler__span{
+            display: inline-block;
+            min-width: 60px;
+            max-height: 10px;
+            position: relative;
+            bottom: 10px;
+            left: 0;
+    
+            &:before, &:after{
+                transition: transform .5s;
+                top: 0px;
+                position: absolute;
+                content: ' ';
+                height: 13px;
+                width: 3px;
+                background-color: $color-neutral-dim;
+            }
+         
+        }
+    }
+
+    &__button:focus{
+        .toggler__span{
+            &:before, &:after{
+                background-color: white;
+            }
+        }
+    }
+    
+    &__button--open{
+        .toggler__span{
+            &:before{
+                transform: rotate(45deg);
+                left: 20px;
+            }
+        
+            &:after{
+                transform: rotate(-45deg);
+                left: 27px;
+            }
+        }
+    }
+    
+    &__button--closed{
+        .toggler__span{
+            &:before{
+                transform: rotate(-45deg);
+                left: 20px;
+            }
+        
+            &:after{
+                transform: rotate(45deg);
+                left: 27px;
+            }
+        }
+    }
+
+}
+
+

@@ -2,17 +2,13 @@
 
    <div class="article__header" data-id="{{this._id}}" {{#if this.featured}}data-open="true"{{else}}data-open="false"{{/if}}>
       <h5 class="article__title"><span class="text--gradient-hover">{{this.title}}</span> <span class="text--dim">- {{this.date}}</span></h5>
-      <div class="article__toggler-wrap">
-         <button id="toggler-{{this._id}}" class="article__toggler {{#if this.featured}}article__toggler--open{{else}}article__toggler--closed{{/if}}">
-            <span></span>
-         </button>
-      </div>
+      {{> toggler-button}}
    </div>
 
    <div id="content-{{this._id}}" class="article__content-toggler {{#if this.featured}}article__content-toggler--visible{{else}}article__content-toggler--hidden{{/if}}">
       
       <div class="article__content">
-         <p class="article__summary">{{this.summary}} <a href="{{this.link}}" class="article__link" target="_blank">Read More</a></p>
+         <p class="article__summary">{{this.summary}} <a href="{{this.link}}" class="link link--primary" target="_blank">Read More</a></p>
       </div>
 
       {{#if this.hasNote}}

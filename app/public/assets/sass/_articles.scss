@@ -31,103 +31,25 @@
         width: 100%;
     }
 
-    &__toggler-wrap{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    &__toggler{
-        display: inline-block;
-        min-width: 60px;
-        max-height: 10px;
-        position: relative;
-        bottom: 5px;
-        left: 0;
-        transition: opacity .5s;
-        opacity: .5;
-
-        &:hover{
-            opacity: 1;
-        }
-
-        &:before, &:after{
-            transition: transform .5s;
-            top: 0px;
-            position: absolute;
-            content: ' ';
-            height: 13px;
-            width: 3px;
-            background-color: $color-neutral-dim;
-        }
-
-    }
-
-    &__toggler--open{
-        &:before{
-            transform: rotate(45deg);
-            left: 20px;
-        }
-
-        &:after{
-            transform: rotate(-45deg);
-            left: 27px;
-        }
-
-    }
-
-    &__toggler--closed{
-        &:before{
-            transform: rotate(-45deg);
-            left: 20px;
-        }
-
-        &:after{
-            transform: rotate(45deg);
-            left: 27px;
-        }
-    }
-
     &__content-toggler{
         overflow: hidden;
     }
 
     &__content-toggler--hidden{
         max-height: 0px;
-        transition: max-height .5s ease, visibility 2s;
+        transition: max-height .5s ease, visibility 1s;
         visibility: hidden;
     }
     
     &__content-toggler--visible{
         max-height: 300vh;
-        transition: max-height 1s ease, visibility 2s;
+        transition: max-height 1s ease, visibility 1s;
         visibility: visible;
     }
     
     &__content{
         border-top: $border-subtle;
         @include padding-thick;
-
-        #{$a-tags}{
-            @include gradient-text-primary;
-            text-decoration: none;
-        }
-
-        #{$a-tags-hover}{
-            @include gradient-text-primary;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-
-            @include gradient-underline-primary;
-        }
-    }
-
-    &__summary{
-    }
-
-    &__link{
-
     }
 
     &__note{

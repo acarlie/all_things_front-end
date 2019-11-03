@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('.link--btn').attr('tabIndex', '-1');
+
     $(document).on('click', '.article__header', function (event) {
         const isOpen = $(this).data('open');
         const id = $(this).attr('data-id');
@@ -7,8 +8,8 @@ $(document).ready(function () {
             $(`#article-${id}`)
                 .removeClass('article--open');
             $(`#toggler-${id}`)
-                .addClass('article__toggler--closed')
-                .removeClass('article__toggler--open');
+                .addClass('toggler__button--closed')
+                .removeClass('toggler__button--open');
             $(`#content-${id}`)
                 .addClass('article__content-toggler--hidden')
                 .removeClass('article__content-toggler--visible');
@@ -17,8 +18,8 @@ $(document).ready(function () {
             $(`#article-${id}`)
                 .addClass('article--open');
             $(`#toggler-${id}`)
-                .addClass('article__toggler--open')
-                .removeClass('article__toggler--closed');
+                .addClass('toggler__button--open')
+                .removeClass('toggler__button--closed');
             $(`#content-${id}`)
                 .addClass('article__content-toggler--visible')
                 .removeClass('article__content-toggler--hidden');
