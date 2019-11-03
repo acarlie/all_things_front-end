@@ -76,15 +76,14 @@ const handler = {
         event.preventDefault();
         const id = $(this).data('id');
         const isSaved = $(this).data('saved');
+        // const isSavedPage = $(this).data('is-saved-page');
         const obj = isSaved ? { saved: false } : { saved: true };
         const me = $(this);
-
         $.ajax({
             type: 'PUT',
             url: `/save/${id}`,
             data: obj
         }).then((data) => {
-            console.log(`Data saved: ${data}`);
             if (data.saved) {
                 me.find('span').find('span').text('Removed from Saved');
                 me.data('saved', true);

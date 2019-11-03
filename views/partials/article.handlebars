@@ -47,7 +47,7 @@
                </span>
             </span>
          </button>
-         <button class="btn btn--accent btn--lightBg btn--block btn--save" {{#if this.saved}}data-saved="true"{{else}}data-saved="false"{{/if}} data-id="{{this._id}}" data-isSaved-page={{isSaved}}>
+         <button class="btn btn--accent btn--lightBg btn--block btn--save" {{#if this.saved}}data-saved="true"{{else}}data-saved="false"{{/if}} data-id="{{this._id}}" data-is-saved-page="{{this.isSavedPage}}">
             <span class="btn__span">
                <span class="text--gradient-accent">
                   {{#if this.saved}}

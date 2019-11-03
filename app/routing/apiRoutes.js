@@ -45,7 +45,6 @@ module.exports = function (app, db) {
 
                 db.Article.create(result)
                     .then(() => {
-                        // console.log(articleData);
                     })
                     .catch((err) => {
                         console.log(err);
