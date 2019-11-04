@@ -1,4 +1,4 @@
-const handler = {
+const handlers = {
     toggleCard: function (event) {
         const isOpen = $(this).data('open');
         const id = $(this).attr('data-id');
@@ -76,7 +76,6 @@ const handler = {
         event.preventDefault();
         const id = $(this).data('id');
         const isSaved = $(this).data('saved');
-        // const isSavedPage = $(this).data('is-saved-page');
         const obj = isSaved ? { saved: false } : { saved: true };
         const me = $(this);
         $.ajax({
@@ -107,9 +106,9 @@ const handler = {
 
 $(document).ready(function () {
     $('.link--btn').attr('tabIndex', '-1');
-    $(document).on('click', '.card__header', handler.toggleCard);
-    $(document).on('click', '.btn--submit', handler.addNote);
-    $(document).on('click', '.btn--note', handler.toggleNoteForm);
-    $(document).on('click', '.btn--save', handler.saveArticle);
-    $(document).on('click', '#delete', handler.clearAll);
+    $(document).on('click', '.card__header', handlers.toggleCard);
+    $(document).on('click', '.btn--submit', handlers.addNote);
+    $(document).on('click', '.btn--note', handlers.toggleNoteForm);
+    $(document).on('click', '.btn--save', handlers.saveArticle);
+    $(document).on('click', '#delete', handlers.clearAll);
 });

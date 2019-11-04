@@ -20,7 +20,7 @@ module.exports = () => {
                     console.log(err);
                 });
         },
-        scrapeHandlerCodrops: (db, $, el) =>{
+        scrapeHandlerCodrops: (db, $, el) => {
             const result = {};
             const date = $(el).find('time').text();
             const summary = $(el).find('.ct-feat-excerpt').text().trim();
