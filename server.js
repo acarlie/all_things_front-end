@@ -11,11 +11,11 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mongo_scrape
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan('dev'));
-
+app.use(express.static('./app/public'));
+app.use('/api', require('./app/routing/apiRoutes')(db));
+app.use(require('./app/routing/htmlRoutes')(db));
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-
-app.use(express.static('./app/public'));
 
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
@@ -26,9 +26,6 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
     .catch((err) => {
         console.log('Database connection error' + err);
     });
-
-require('./app/routing/apiRoutes')(app, db);
-require('./app/routing/htmlRoutes')(app, db);
 
 app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`);

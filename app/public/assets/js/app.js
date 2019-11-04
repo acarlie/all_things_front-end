@@ -41,7 +41,7 @@ const handler = {
         };
         $.ajax({
             type: 'POST',
-            url: `/articles/${id}`,
+            url: `/api/articles/${id}`,
             data: obj
         }).then((data) => {
             console.log(data);
@@ -81,7 +81,7 @@ const handler = {
         const me = $(this);
         $.ajax({
             type: 'PUT',
-            url: `/save/${id}`,
+            url: `/api/save/${id}`,
             data: obj
         }).then((data) => {
             if (data.saved) {
@@ -98,7 +98,7 @@ const handler = {
     clearAll: function (event) {
         $.ajax({
             type: 'DELETE',
-            url: `/delete`
+            url: `/api/delete`
         }).then(() => {
         });
         location.reload();
