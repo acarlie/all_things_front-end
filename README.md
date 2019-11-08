@@ -7,4 +7,4 @@
 ![Demonstation of All Things Front-End App](Demo.gif)
 
 ---
-### Deployed Project: https://agile-bayou-91638.herokuapp.com/
+### Deployed Project: https://all-things-fe.herokuapp.com/
