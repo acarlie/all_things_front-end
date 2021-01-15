@@ -3,7 +3,6 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const db = require('./app/models');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mongo_scraper';

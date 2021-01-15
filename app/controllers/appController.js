@@ -6,6 +6,7 @@ module.exports = (db) => {
     return {
         scrape: (req, res) => {
             axios.get('https://css-tricks.com/').then((webpage) => {
+                // console.log(webpage);
                 const $ = cheerio.load(webpage.data);
                 $('.article-article').each((i, el) => { helpers.scrapeHandlerCssTricks(db, $, el); });
                 return axios.get('https://tympanus.net/codrops/category/tutorials/');

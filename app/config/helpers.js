@@ -4,15 +4,15 @@ module.exports = () => {
     return {
         scrapeHandlerCssTricks: (db, $, el) => {
             const result = {};
-            const date = $(el).find('.article-publication-meta').find('time').attr('datetime');
-            const summary = $(el).find('.article-content').find('p').text().trim();
-            result.timestamp = moment(date, 'YYYY-MM-DD').unix();
+            const date = $(el).find('.author-row').find('time').text().trim();
+            const summary = $(el).find('.card-content').find('p').text().trim();
+            result.timestamp = moment(date, 'MMM Do, YYYY').unix();
             result.site = 'css-tricks';
             result.siteUrl = 'https://css-tricks.com/';
             result.title = $(el).find('h2').find('a').text().trim();
-            result.link = $(el).find('h2').find('a').attr('href').trim();
-            result.summary = summary.substring(0, summary.lastIndexOf('Read'));
-            result.date = moment(date, 'YYYY-MM-DD').format('MMM Do, YYYY');
+            result.link = $(el).find('h2').find('a').attr('href');
+            result.summary = summary;
+            result.date = moment(date, 'MMM Do, YYYY').format('MMM Do, YYYY');
             db.Article.create(result)
                 .then(() => {
                 })
@@ -62,7 +62,7 @@ module.exports = () => {
                         res.render(page, renderObj);
                     }
                 })
-                .catch(() => {});
+                .catch(() => { });
         }
     };
 };
