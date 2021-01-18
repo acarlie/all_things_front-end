@@ -282,12 +282,22 @@ p {
   height: 1px;
   overflow: hidden; }
 
+a.btn {
+  text-decoration: none;
+  display: inline-block; }
+  a.btn:focus {
+    outline: none;
+    border: none;
+    box-shadow: none; }
+
 .btn {
   padding: 1.5px;
   opacity: .75;
   -webkit-transition: opacity .5s;
   transition: opacity .5s;
-  border-radius: .25em; }
+  border-radius: .25em;
+  font-size: 1rem;
+  margin-bottom: 0.5em; }
   .btn:hover {
     opacity: 1; }
   .btn:focus {

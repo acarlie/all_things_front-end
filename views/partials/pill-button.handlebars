@@ -1,8 +1,29 @@
+{{#if this.href}}
+
+<a href="{{this.href}}" id="{{this.id}}" class="btn btn--{{this.color}} btn--{{this.bg}} btn--pill">
+    <span class="btn__span">
+        <span class="text--{{this.textClass}}">
+            {{this.text}}
+
+            {{#if this.srOnly}}
+            <span class="sr-only">{{this.srOnly}}</span>
+            {{/if}}
+        </span>
+    </span>
+</a>
+
+{{else}}
+
 <button id="{{this.id}}" class="btn btn--{{this.color}} btn--{{this.bg}} btn--pill">
     <span class="btn__span">
         <span class="text--{{this.textClass}}">
             {{this.text}}
+            {{#if this.srOnly}}
+            <span class="sr-only">{{this.srOnly}}</span>
+            {{/if}}
         </span>
     </span>
 </button>
 
+
+{{/if}}

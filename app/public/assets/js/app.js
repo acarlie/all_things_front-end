@@ -1,6 +1,6 @@
 const handlers = {
     toggleCard: function (event) {
-        const isOpen = $(this).attr('aria-expanded') === "true";
+        const isOpen = $(this).attr('aria-expanded') === 'true';
         const id = $(this).attr('data-id');
         if (isOpen) {
             $(`#article-${id}`)
@@ -58,13 +58,13 @@ const handlers = {
     toggleNoteForm: function (event) {
         event.preventDefault();
         const id = $(this).data('id');
-        const isOpen = $(this).data('open');
+        const isOpen = $(this).attr('aria-expanded') === 'true';
         const hasNote = $(this).data('has-note');
         if (isOpen) {
             $(`#note-wrap-${id}`)
                 .addClass('card__content-toggler--hidden')
                 .removeClass('card__content-toggler--visible');
-            $(this).data('open', false);
+            $(this).attr('aria-expanded', false);
             if (hasNote) {
                 $(this).find('span').find('span').text('Edit Note');
             } else {
@@ -74,7 +74,7 @@ const handlers = {
             $(`#note-wrap-${id}`)
                 .addClass('card__content-toggler--visible')
                 .removeClass('card__content-toggler--hidden');
-            $(this).data('open', true);
+            $(this).attr('aria-expanded', true);
             $(this).find('span').find('span').text('X Cancel');
         }
     },

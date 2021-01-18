@@ -18,7 +18,6 @@
          <p class="card__summary">{{this.summary}} <a href="{{this.link}}" class="link link--primary" target="_blank"
                rel="noopener noreferrer">Read more <span class="sr-only">about {{this.title}}, opens in new tab
                </span></a></p>
-
       </div>
 
       {{#if this.hasNote}}
@@ -48,9 +47,10 @@
 
       <div class="card__footer">
          <button id="add-note-btn-{{this._id}}" class="btn btn--primary btn--lightBg btn--block btn--note"
-            data-id="{{this._id}}" data-open="false" data-has-note="{{this.hasNote}}">
+            data-id="{{this._id}}" data-open="false" data-has-note="{{this.hasNote}}"
+            aria-controls="note-wrap-{{this._id}}" aria-expanded="false">
             <span class="btn__span">
-               <span class="text--gradient">
+               <span class="text--gradient" aria-live="polite">
                   {{#if this.hasNote}}
                   Edit Note
                   {{else}}
@@ -72,11 +72,11 @@
             </span>
          </button>
       </div>
-      <div id="note-wrap-{{this._id}}" class="card__content-toggler card__content-toggler--hidden" data-open="false">
+      <div id="note-wrap-{{this._id}}" aria-hidden="true" class="card__content-toggler card__content-toggler--hidden"
+         data-open="false">
          <div class="card__content">
             {{> form}}
          </div>
       </div>
-
    </div>
 </article>
