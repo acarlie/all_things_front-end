@@ -23,18 +23,29 @@
 
 body {
   font-family: "Lato", sans-serif;
-  color: #8f8f96;
+  color: #96969c;
+  font-size: 16px;
   background: #111119;
   background: -webkit-gradient(linear, left top, right top, from(#1e1e28), to(#111119));
   background: linear-gradient(to right, #1e1e28, #111119); }
 
-h1, h2, h3, h4, h5, h6 {
+.heading {
   font-family: "Source Sans Pro", sans-serif;
   color: #e1e1ec;
   letter-spacing: .5px; }
-
-h1 {
-  margin-bottom: 0.5em; }
+  .heading--1 {
+    font-size: 3rem;
+    margin-bottom: 0.5em; }
+  .heading--2 {
+    font-size: 2.5rem; }
+  .heading--3 {
+    font-size: 2rem; }
+  .heading--4 {
+    font-size: 1.5rem; }
+  .heading--5 {
+    font-size: 1.25rem; }
+  .heading--6 {
+    font-size: 1rem; }
 
 p {
   margin-bottom: .25em; }
@@ -43,7 +54,7 @@ p {
   text-align: center; }
 
 .text--dim {
-  color: #8f8f96; }
+  color: #96969c; }
 
 .text--gradient {
   display: inline-block;
@@ -96,7 +107,7 @@ p {
   box-shadow: 0px 5px 5px rgba(5, 5, 10, 0.25);
   overflow: hidden;
   margin: 0.5em 0;
-  opacity: .65;
+  opacity: .8;
   -webkit-transition: opacity .5s;
   transition: opacity .5s; }
   .card:hover, .card--open {
@@ -109,20 +120,19 @@ p {
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent; }
-  .card__header {
+  .card__header-toggle {
+    border-radius: 1.25em 1.25em 0 0;
     display: -webkit-box;
     display: flex;
-    cursor: pointer; }
-    .card__header:hover .text--gradient-hover:after {
-      background: #03a6a1;
-      background: -webkit-gradient(linear, left top, right top, from(#93edab), to(#03a6a1));
-      background: linear-gradient(to right, #93edab, #03a6a1);
-      content: ' ';
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      position: absolute; }
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center; }
+    .card__header-toggle[aria-expanded="false"] {
+      border-radius: 1.25em; }
+    .card__header-toggle:focus, .card__header-toggle:hover {
+      box-shadow: inset 0 0 0 3px #93edab; }
   .card__title {
     padding: 1.5em;
     width: 100%; }
@@ -180,7 +190,7 @@ p {
       content: ' ';
       height: 13px;
       width: 3px;
-      background-color: #8f8f96; }
+      background-color: #96969c; }
   .toggler__button:focus .toggler__span:before, .toggler__button:focus .toggler__span:after {
     background-color: white; }
   .toggler__button--open .toggler__span:before {
@@ -227,7 +237,7 @@ p {
   .form__input--text[type=text], .form__input--textarea {
     outline: none;
     font-family: "Lato", sans-serif;
-    border: 1px solid #8f8f96; }
+    border: 1px solid #96969c; }
     .form__input--text[type=text]:focus, .form__input--textarea:focus {
       border: 2px solid #03a6a1; }
 

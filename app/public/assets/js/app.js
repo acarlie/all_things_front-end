@@ -1,6 +1,6 @@
 const handlers = {
     toggleCard: function (event) {
-        const isOpen = $(this).data('open');
+        const isOpen = $(this).attr('aria-expanded') === "true";
         const id = $(this).attr('data-id');
         if (isOpen) {
             $(`#article-${id}`)
@@ -10,18 +10,24 @@ const handlers = {
                 .removeClass('toggler__button--open');
             $(`#content-${id}`)
                 .addClass('card__content-toggler--hidden')
-                .removeClass('card__content-toggler--visible');
-            $(this).data('open', false);
+                .removeClass('card__content-toggler--visible')
+                .attr('aria-hidden', true);
+            $(this)
+                .data('open', false)
+                .attr('aria-expanded', false);
         } else {
             $(`#article-${id}`)
-                .addClass('article--open');
+                .addClass('card--open');
             $(`#toggler-${id}`)
                 .addClass('toggler__button--open')
                 .removeClass('toggler__button--closed');
             $(`#content-${id}`)
                 .addClass('card__content-toggler--visible')
-                .removeClass('card__content-toggler--hidden');
-            $(this).data('open', true);
+                .removeClass('card__content-toggler--hidden')
+                .attr('aria-hidden', false);
+            $(this)
+                .data('open', true)
+                .attr('aria-expanded', true);
         }
     },
     addNote: function (event) {
@@ -106,7 +112,7 @@ const handlers = {
 
 $(document).ready(function () {
     $('.link--btn').attr('tabIndex', '-1');
-    $(document).on('click', '.card__header', handlers.toggleCard);
+    $(document).on('click', '.card__header-toggle', handlers.toggleCard);
     $(document).on('click', '.btn--submit', handlers.addNote);
     $(document).on('click', '.btn--note', handlers.toggleNoteForm);
     $(document).on('click', '.btn--save', handlers.saveArticle);

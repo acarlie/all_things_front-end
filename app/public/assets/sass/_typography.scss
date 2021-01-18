@@ -1,24 +1,46 @@
-body{
+body {
     font-family: $body-font;
     color: $color-neutral-dim;
+    font-size: 16px;
     @include gradient-dark;
 }
 
-h1, h2, h3, h4, h5, h6{
+.heading {
     font-family: $headings-font;
     color: $color-neutral-light;
     letter-spacing: .5px;
+
+    &--1 {
+        font-size: 3rem;
+        margin-bottom: $spacing-slim;
+    }
+
+    &--2 {
+        font-size: 2.5rem;
+    }
+
+    &--3 {
+        font-size: 2rem;
+    }
+
+    &--4 {
+        font-size: 1.5rem;
+    }
+
+    &--5 {
+        font-size: 1.25rem;
+    }
+
+    &--6 {
+        font-size: 1rem;
+    }
 }
 
-h1{
-    margin-bottom: $spacing-slim;
-}
-
-p{
+p {
     margin-bottom: .25em;
 }
 
-.text--center{
+.text--center {
     text-align: center;
 }
 
@@ -26,22 +48,22 @@ p{
     color: $color-neutral-dim;
 }
 
-.text--gradient{
+.text--gradient {
     display: inline-block;
     @include gradient-text-primary;
 }
 
-.text--gradient-accent{
+.text--gradient-accent {
     display: inline-block;
     @include gradient-text-accent;
 }
 
-.text--gradient-hover{
+.text--gradient-hover {
     text-decoration: none;
     display: inline-block;
     position: relative;
 
-    &:hover{
+    &:hover {
         @include gradient-text-primary;
         @include gradient-underline-primary;
     }

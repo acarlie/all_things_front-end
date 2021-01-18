@@ -1,7 +1,7 @@
-
 <header class="row row--header">
     <div class="container">
-        <h1>All Things <span class="text--gradient">&#123;</span> Front-End <span class="text--gradient">&#125;</span></h1>
+        <h1 class="heading heading--1">All Things <span class="text--gradient">&#123;</span> Front-End <span
+                class="text--gradient">&#125;</span></h1>
         {{> nav}}
     </div>
 </header>
@@ -9,44 +9,43 @@
 <main class="row row--body">
     <div class="container">
         {{#if success}}
-            {{#each articles}}
-                {{> article}}
-            {{/each}}
+        {{#each articles}}
+        {{> article}}
+        {{/each}}
         {{else}}
-            <div class="card">
-                {{#if isSavedPage}}
-                    <div class="card__header">
-                        <h5 class="card__title text--center text--dim">There are no saved articles :-(</h5>
-                    </div>
-                    <div class="card__content">
-                        <a class="link--btn" href="/">
-                            <button class="btn btn--primary btn--lightBg btn--block">
-                                <span class="btn__span">
-                                    <span class="text--gradient">
-                                        Home
-                                    </span>
-                                </span>
-                            </button>
-                        </a>
-                    </div>
-                {{else}}
-                    <div class="card__header">                            
-                        <h5 class="card__title text--center text--dim">No articles found :-(</h5>
-                    </div>
-                    <div class="card__content">
-                        <a class="link--btn" href="/api/scrape">
-                            <button class="btn btn--primary btn--lightBg btn--block">
-                                <span class="btn__span">
-                                    <span class="text--gradient">
-                                        Load New Articles!
-                                    </span>
-                                </span>
-                            </button>
-                        </a>
-                    </div>
-                {{/if}}
+        <div class="card">
+            {{#if isSavedPage}}
+            <div class="card__header">
+                <h5 class="card__title text--center text--dim">There are no saved articles :-(</h5>
             </div>
+            <div class="card__content">
+                <a class="link--btn" href="/">
+                    <button class="btn btn--primary btn--lightBg btn--block">
+                        <span class="btn__span">
+                            <span class="text--gradient">
+                                Home
+                            </span>
+                        </span>
+                    </button>
+                </a>
+            </div>
+            {{else}}
+            <div class="card__header">
+                <h5 class="card__title text--center text--dim">No articles found :-(</h5>
+            </div>
+            <div class="card__content">
+                <a class="link--btn" href="/api/scrape">
+                    <button class="btn btn--primary btn--lightBg btn--block">
+                        <span class="btn__span">
+                            <span class="text--gradient">
+                                Load New Articles!
+                            </span>
+                        </span>
+                    </button>
+                </a>
+            </div>
+            {{/if}}
+        </div>
         {{/if}}
     </div>
 </main>
-
