@@ -1,6 +1,6 @@
-# About 'All Things {Front-End}'
+# About 'All Things {Frontend}'
 
-'All Things {Front-End}' is an app that scrapes articles from css-tricks and codrops. Users can add notes and save the articles. 'All Things {Front-End}' was created with Node.js, MongoDB & Mongoose, Express, Express-Handlebars, SCSS (utilizing the BEM naming convention), Gulp, Cheerio, and Axios.
+'All Things {Frontend}' is an app that scrapes articles from css-tricks and codrops. Users can add notes and save the articles. 'All Things {Frontend}' was created with Node.js, MongoDB & Mongoose, Express, Express-Handlebars, SCSS (utilizing the BEM naming convention), Gulp, Cheerio, and Axios.
 
 ##### Deployed Project: https://all-things-fe.herokuapp.com/
 
@@ -10,7 +10,7 @@
 
 ---
 ### Demo
-![Demonstation of All Things Front-End App](Demo.gif)
+![Demonstation of All Things Frontend App](Demo.gif)
 
 ---
 ### How to Use

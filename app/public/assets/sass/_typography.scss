@@ -44,6 +44,10 @@ p {
     text-align: center;
 }
 
+.text--no-wrap {
+    white-space: nowrap;
+}
+
 .text--dim {
     color: $color-neutral-dim;
 }

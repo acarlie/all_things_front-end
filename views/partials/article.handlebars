@@ -3,7 +3,7 @@
    <h2 class="card__header">
       <button class="card__header-toggle" data-id="{{this._id}}" aria-controls="content-{{this._id}}"
          {{#if this.featured}}aria-expanded="true" {{else}}aria-expanded="false" {{/if}}>
-         <div class="card__title heading heading--6">{{this.title}} <span class="text--dim">-
+         <div class="card__title heading heading--6">{{this.title}} <span class="text--dim text--no-wrap">-
                {{this.date}}</span></div>
          {{> toggler-button}}
       </button>

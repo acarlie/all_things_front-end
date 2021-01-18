@@ -53,6 +53,9 @@ p {
 .text--center {
   text-align: center; }
 
+.text--no-wrap {
+  white-space: nowrap; }
+
 .text--dim {
   color: #96969c; }
 
