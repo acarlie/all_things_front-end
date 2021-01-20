@@ -4,13 +4,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean-css');
 const rename = require('gulp-rename');
 
-gulp.task('hello', function () {
-    return new Promise((resolve, reject) => {
-        console.log('hello');
-        resolve();
-    });
-});
-
 gulp.task('css', function () {
     return gulp.src('app/public/assets/sass/style.scss')
         .pipe(sass())

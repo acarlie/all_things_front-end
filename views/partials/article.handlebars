@@ -46,6 +46,18 @@
 
 
       <div class="card__footer">
+          <button class="btn btn--accent btn--lightBg btn--block btn--save" {{#if this.saved}}data-saved="true"
+            {{else}}data-saved="false" {{/if}} data-id="{{this._id}}" data-is-saved-page="{{this.isSavedPage}}">
+            <span class="btn__span">
+               <span class="text--gradient-accent">
+                  {{#if this.saved}}
+                  Remove from saved
+                  {{else}}
+                  ❤ Save
+                  {{/if}}
+               </span>
+            </span>
+         </button>
          <button id="add-note-btn-{{this._id}}" class="btn btn--primary btn--lightBg btn--block btn--note"
             data-id="{{this._id}}" data-open="false" data-has-note="{{this.hasNote}}"
             aria-controls="note-wrap-{{this._id}}" aria-expanded="false">
@@ -55,18 +67,6 @@
                   Edit Note
                   {{else}}
                   + Add Note
-                  {{/if}}
-               </span>
-            </span>
-         </button>
-         <button class="btn btn--accent btn--lightBg btn--block btn--save" {{#if this.saved}}data-saved="true"
-            {{else}}data-saved="false" {{/if}} data-id="{{this._id}}" data-is-saved-page="{{this.isSavedPage}}">
-            <span class="btn__span">
-               <span class="text--gradient-accent">
-                  {{#if this.saved}}
-                  Remove from saved
-                  {{else}}
-                  ❤ Save
                   {{/if}}
                </span>
             </span>

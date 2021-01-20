@@ -75,7 +75,7 @@ const handlers = {
                 .addClass('card__content-toggler--visible')
                 .removeClass('card__content-toggler--hidden');
             $(this).attr('aria-expanded', true);
-            $(this).find('span').find('span').text('X Cancel');
+            $(this).find('span').find('span').html('X Cancel <span class="sr-only">note</span>');
         }
     },
     saveArticle: function (event) {
